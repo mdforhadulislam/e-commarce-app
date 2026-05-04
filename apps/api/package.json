@@ -1,0 +1,53 @@
+{
+  "name": "@entry/api",
+  "version": "1.0.0",
+  "description": "Backend API for Entry Ecommerce platform",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "tsx watch server.ts",
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "webhook": "stripe listen --forward-to localhost:8000/api/payment/webhook",
+    "dev:with-webhook": "echo '⚠️  Run these commands in separate terminals:\\n  1. npm run dev\\n  2. npm run webhook\\n\\nOr use concurrently: npm install -g concurrently && concurrently \"npm run dev\" \"npm run webhook\"'",
+    "lint": "echo 'Linting not configured for API'",
+    "generate-slugs": "tsx scripts/generateProductSlugs.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1004.0",
+    "@aws-sdk/s3-request-presigner": "^3.1004.0",
+    "@imagekit/nodejs": "^7.3.0",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.9.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.2.4",
+    "multer": "^2.1.1",
+    "multer-s3": "^3.0.1",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^8.0.1",
+    "sharp": "^0.34.5",
+    "stripe": "^20.4.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.1.0",
+    "@types/multer-s3": "^3.0.3",
+    "@types/node": "^25.3.5",
+    "@types/nodemailer": "^7.0.11",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
+    "nodemon": "^3.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
